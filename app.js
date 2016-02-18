@@ -32,9 +32,13 @@ app.get('/:destination', function(req,res,next){
 	}
 	if (goodLocation){
 		res.sendFile('public/' + req.params.destination + '.html', {root : './'})
-		console.log(req.query , '!!!')
-		if (req.query.good === 'true') {
-		 res.json(places[0])
+		console.log(req.query.destination , '!!!')
+
+		if (req.query.destination === 'seville') {
+		 	res.send(places[0])
+		}
+		else if (req.query.destination === 'canaryislands'){
+			res.send(places[1])
 		}
 	}
 	else{
